@@ -3,7 +3,6 @@ import Header from './src/Header';
 import Note from './src/Note';
 import NoteForm from './src/NoteForm';
 import { getNotes, saveNotes } from './notesData';
-import "./styles.css"
 
 
 const App = () => {
@@ -27,18 +26,24 @@ const App = () => {
 
   return (
     <div>
-      {/* <h1 className='text-center'>App that Takes Notes!</h1>
-      <p>hehe</p> */}
       <Header />
       <NoteForm onAddNote={handleAddNote} />
       <br />
-      <div className='note-container'>
+      <div style={noteContainer}>
         {notes.map((note) => (
           <Note key={note.id} note={note} onDeleteNote={handleDeleteNote} />
         ))}
       </div>
     </div>
   );
+}
+
+const noteContainer = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    gap: "20px",
 }
 
 export default App;
